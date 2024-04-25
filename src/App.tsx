@@ -2,19 +2,23 @@ import { useState } from 'react';
 import { Search } from './components/search';
 import { getRepos, getUser } from './data/data';
 import { useQuery } from '@tanstack/react-query';
+import { Loader } from './assets/loader';
 
 function App() {
-  const [user, setUser] = useState<string | null>('Issblann');
+  const [user, setUser] = useState<string | null>(null);
+
+  const handleSearch = (value: string) => {
+    setUser(value);
+  };
 
   const { isPending, error, data, isFetching } = useQuery({
-    queryKey: ['user'],
+    queryKey: ['user', user],
     queryFn: () => getUser(user),
   });
 
-  if (isPending) return <div>Loading...</div>;
-
   if (error) return 'An error has occurred: ' + error.message;
   console.log(data);
+
   // getUser('Issblann');
   getRepos('Issblann');
   return (
@@ -23,15 +27,19 @@ function App() {
         Soft gitHub user searcher
       </h1>
 
-      <Search />
+      <Search onSearch={handleSearch} />
 
       <section>
+        {(isPending || isFetching) && (
+          <div className="flex justify-center items-center">
+            <Loader />
+          </div>
+        )}
         <div>
           <img src={data?.avatar_url} alt={data?.name} />
         </div>
         <h1>{data?.name}</h1>
         <p>{data?.bio}</p>
-        <div>{isFetching ? 'Updating...' : ''}</div>
       </section>
     </div>
   );

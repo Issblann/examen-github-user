@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-export const Search = () => {
+type SearchProps = {
+  onSearch: (value: string) => void;
+};
+export const Search = ({ onSearch }: SearchProps) => {
+  const [value, setValue] = useState('');
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    onSearch(value);
+  };
+
   return (
-    <form className="w-full md:w-[80%] max-w-2xl">
+    <form onSubmit={handleSubmit} className="w-full md:w-[80%] max-w-2xl">
       <div className="relative">
         <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
           <svg
@@ -21,7 +31,9 @@ export const Search = () => {
           </svg>
         </div>
         <input
-          type="search"
+          type="text"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
           id="default-search"
           className="block p-4 pl-10 w-full text-sm text-gray-900 bg-slate-100 rounded-lg border border-[#33272a] focus:ring-[#ff8ba7] focus:border-[#ff8ba7]"
           placeholder="Search a git hub user..."
