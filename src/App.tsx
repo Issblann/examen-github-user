@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { useState } from 'react';
 import { Search } from './components/search';
 import { getRepos, getUser } from './data/data';
 import { useQuery } from '@tanstack/react-query';
