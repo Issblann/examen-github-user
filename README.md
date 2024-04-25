@@ -7,7 +7,8 @@ Steps
 
 Photos project
 
-![iPhone 12 Pro-1714081512374](https://github.com/Issblann/examen-github-user/assets/109175830/958727d4-88c3-4ed6-a589-99c67e2b4b3b)
+![image](https://github.com/Issblann/examen-github-user/assets/109175830/2bcbe896-4f1d-414f-b45d-2cf5e4a4361a)
+
 ![image](https://github.com/Issblann/examen-github-user/assets/109175830/723888fd-db93-42b4-905d-78c1fd349596)
 
 
