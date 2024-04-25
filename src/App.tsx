@@ -56,7 +56,9 @@ function App() {
         <>
           {errorUser ? (
             <div className="flex justify-center items-center">
-              <p className="text-2xl text-[#594a4e]">User not found</p>
+              <p className="text-2xl text-[#594a4e]">
+                User not found or excess of requests
+              </p>
             </div>
           ) : isPendingUser || isFetchingUser ? (
             <div className="flex justify-center items-center">
@@ -99,7 +101,7 @@ function App() {
                 {errorRepo && (
                   <div className="flex justify-center items-center">
                     <p className="text-2xl text-[#594a4e]">
-                      Error fetching repos
+                      Wait a moment and try again, server error
                     </p>
                   </div>
                 )}
