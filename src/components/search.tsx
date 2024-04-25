@@ -9,6 +9,7 @@ export const Search = ({ onSearch }: SearchProps) => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     onSearch(value);
+    setValue('');
   };
 
   return (
