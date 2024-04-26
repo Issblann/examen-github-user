@@ -39,7 +39,7 @@ function App() {
     refetchOnReconnect: false,
     enabled: !!user,
   });
-
+  console.log(dataRepo);
   return (
     <div className="flex flex-col gap-10 p-5 items-center w-full ">
       <h1 className="lg:text-7xl md:text-4xl text-center text-3xl font-semibold text-[#33272a]">
