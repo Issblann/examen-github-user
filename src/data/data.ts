@@ -21,7 +21,7 @@ export const getUser = async (username: string | null) => {
 export const getRepos = async (username: string | null) => {
   try {
     const response = await axios.get(`${URL_BASE_USER}/${username}/repos`);
-    const recentRepos = response.data.slice(0, 5);
+    const recentRepos = response.data.slice(-5);
 
     const reposWithLanguages = await Promise.all(
       recentRepos.map(async (repo: any) => {
